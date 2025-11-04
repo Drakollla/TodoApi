@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Data;
+using TodoApi.Services.Auth;
+using TodoApi.Services.Todo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +9,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString));
+
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ITodoService, TodoService>();
 
 // Add services to the container.
 
