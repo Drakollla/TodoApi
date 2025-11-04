@@ -27,7 +27,7 @@ namespace TodoApi.Services.Auth
             if (user == null)
                 return (false, null, "Неверный email");
 
-            if (user.PasswordHash != dto.Password)
+            if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
                 return (false, null, "Неверный пароль");
 
             var token = GenerateJwtToken(user);
@@ -44,7 +44,7 @@ namespace TodoApi.Services.Auth
             var user = new User
             {
                 Email = dto.Email,
-                PasswordHash = dto.Password
+                PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password)
             };
 
             _context.Users.Add(user);
@@ -61,7 +61,7 @@ namespace TodoApi.Services.Auth
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()), 
+                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
