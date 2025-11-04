@@ -29,7 +29,7 @@ namespace TodoApi.Data
                 user.HasMany(u => u.TodoItems)      
                     .WithOne(t => t.User)           
                     .HasForeignKey(t => t.UserId)   
-                    .OnDelete(DeleteBehavior.Cascade);
+                    .OnDelete(DeleteBehavior.NoAction);
 
                 user.HasMany(u => u.Categories)     
                     .WithOne(c => c.User)           
@@ -45,7 +45,7 @@ namespace TodoApi.Data
                 category.HasMany(c => c.TodoItems)  
                         .WithOne(t => t.Category)       
                         .HasForeignKey(t => t.CategoryId)
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .OnDelete(DeleteBehavior.Cascade);
             });
 
             modelBuilder.Entity<TodoItem>(item =>
