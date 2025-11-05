@@ -20,8 +20,8 @@ namespace TodoApi.Data
             {
                 user.HasKey(u => u.Id);
 
-                user.Property(u => u.Username).IsRequired().HasMaxLength(50);
-                user.HasIndex(u => u.Username).IsUnique(); 
+                //user.Property(u => u.Username).IsRequired().HasMaxLength(50);
+                //user.HasIndex(u => u.Username).IsUnique(); 
                 user.Property(u => u.Email).IsRequired().HasMaxLength(100);
                 user.HasIndex(u => u.Email).IsUnique(); 
                 user.Property(u => u.PasswordHash).IsRequired();
