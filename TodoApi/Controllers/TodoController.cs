@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using TodoApi.DTOs.Todo;
-using TodoApi.Services.Todo;
+using TodoApi.Services.Todos;
 
 
 namespace TodoApi.Controllers

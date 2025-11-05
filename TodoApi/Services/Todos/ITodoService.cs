@@ -1,6 +1,6 @@
 ﻿using TodoApi.DTOs.Todo;
 
-namespace TodoApi.Services.Todo
+namespace TodoApi.Services.Todos
 {
     public interface ITodoService
     {

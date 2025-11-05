@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using TodoApi.DTOs.User;
-using TodoApi.Services.User;
+using TodoApi.DTOs.UserDtos;
+using TodoApi.Services.Users;
 
 namespace TodoApi.Controllers
 {

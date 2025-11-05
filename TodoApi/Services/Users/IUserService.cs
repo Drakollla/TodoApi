@@ -1,6 +1,6 @@
-﻿using TodoApi.DTOs.User;
+﻿using TodoApi.DTOs.UserDtos;
 
-namespace TodoApi.Services.User
+namespace TodoApi.Services.Users
 {
     public interface IUserService
     {

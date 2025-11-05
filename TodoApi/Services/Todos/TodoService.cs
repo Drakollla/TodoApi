@@ -3,7 +3,7 @@ using TodoApi.Data;
 using TodoApi.DTOs.Todo;
 using TodoApi.Mapping;
 
-namespace TodoApi.Services.Todo
+namespace TodoApi.Services.Todos
 {
     public class TodoService : ITodoService
     {

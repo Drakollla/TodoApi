@@ -1,4 +1,4 @@
-﻿namespace TodoApi.DTOs.User
+﻿namespace TodoApi.DTOs.UserDtos
 {
     public class UserDto
     {

@@ -1,9 +1,8 @@
-﻿using BCrypt.Net;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TodoApi.Data;
-using TodoApi.DTOs.User;
+using TodoApi.DTOs.UserDtos;
 
-namespace TodoApi.Services.User
+namespace TodoApi.Services.Users
 {
     public class UserService : IUserService
     {
@@ -28,14 +27,14 @@ namespace TodoApi.Services.User
 
             await _context.SaveChangesAsync();
 
-            return(true,string.Empty);
+            return (true, string.Empty);
         }
 
         public async Task<bool> DeleteMyProfile(int userId)
         {
             var user = await _context.Users.FindAsync(userId);
 
-            if(user == null)
+            if (user == null)
                 return false;
 
             _context.Users.Remove(user);
@@ -46,8 +45,8 @@ namespace TodoApi.Services.User
 
         public async Task<UserDto?> GetMyProfileAsync(int userId)
         {
-            var user = await _context.Users.Where(x=>x.Id == userId)
-                .Select(x=>new UserDto
+            var user = await _context.Users.Where(x => x.Id == userId)
+                .Select(x => new UserDto
                 {
                     Id = x.Id,
                     Email = x.Email,
